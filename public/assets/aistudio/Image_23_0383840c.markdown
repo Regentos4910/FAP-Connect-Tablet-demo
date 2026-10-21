@@ -1,0 +1,190 @@
+---
+name: FAP Connect
+colors:
+  surface: '#f8f9ff'
+  surface-dim: '#cbdbf5'
+  surface-bright: '#f8f9ff'
+  surface-container-lowest: '#ffffff'
+  surface-container-low: '#eff4ff'
+  surface-container: '#e5eeff'
+  surface-container-high: '#dce9ff'
+  surface-container-highest: '#d3e4fe'
+  on-surface: '#0b1c30'
+  on-surface-variant: '#3f4850'
+  inverse-surface: '#213145'
+  inverse-on-surface: '#eaf1ff'
+  outline: '#707881'
+  outline-variant: '#bfc7d2'
+  surface-tint: '#006398'
+  primary: '#006194'
+  on-primary: '#ffffff'
+  primary-container: '#007bb9'
+  on-primary-container: '#fdfcff'
+  inverse-primary: '#93ccff'
+  secondary: '#006a61'
+  on-secondary: '#ffffff'
+  secondary-container: '#86f2e4'
+  on-secondary-container: '#006f66'
+  tertiary: '#894d00'
+  on-tertiary: '#ffffff'
+  tertiary-container: '#ac6200'
+  on-tertiary-container: '#fffbff'
+  error: '#ba1a1a'
+  on-error: '#ffffff'
+  error-container: '#ffdad6'
+  on-error-container: '#93000a'
+  primary-fixed: '#cce5ff'
+  primary-fixed-dim: '#93ccff'
+  on-primary-fixed: '#001d31'
+  on-primary-fixed-variant: '#004b73'
+  secondary-fixed: '#89f5e7'
+  secondary-fixed-dim: '#6bd8cb'
+  on-secondary-fixed: '#00201d'
+  on-secondary-fixed-variant: '#005049'
+  tertiary-fixed: '#ffdcc0'
+  tertiary-fixed-dim: '#ffb875'
+  on-tertiary-fixed: '#2d1600'
+  on-tertiary-fixed-variant: '#6b3b00'
+  background: '#f8f9ff'
+  on-background: '#0b1c30'
+  surface-variant: '#d3e4fe'
+typography:
+  display-lg:
+    fontFamily: Inter
+    fontSize: 48px
+    fontWeight: '700'
+    lineHeight: 56px
+    letterSpacing: -0.02em
+  headline-lg:
+    fontFamily: Inter
+    fontSize: 32px
+    fontWeight: '600'
+    lineHeight: 40px
+    letterSpacing: -0.01em
+  headline-md:
+    fontFamily: Inter
+    fontSize: 24px
+    fontWeight: '600'
+    lineHeight: 32px
+  title-lg:
+    fontFamily: Inter
+    fontSize: 20px
+    fontWeight: '600'
+    lineHeight: 28px
+  title-md:
+    fontFamily: Inter
+    fontSize: 16px
+    fontWeight: '600'
+    lineHeight: 24px
+  body-lg:
+    fontFamily: Inter
+    fontSize: 18px
+    fontWeight: '400'
+    lineHeight: 28px
+  body-md:
+    fontFamily: Inter
+    fontSize: 16px
+    fontWeight: '400'
+    lineHeight: 24px
+  label-lg:
+    fontFamily: Inter
+    fontSize: 14px
+    fontWeight: '500'
+    lineHeight: 20px
+    letterSpacing: 0.1px
+  label-sm:
+    fontFamily: Inter
+    fontSize: 12px
+    fontWeight: '500'
+    lineHeight: 16px
+    letterSpacing: 0.5px
+rounded:
+  sm: 0.25rem
+  DEFAULT: 0.5rem
+  md: 0.75rem
+  lg: 1rem
+  xl: 1.5rem
+  full: 9999px
+spacing:
+  unit: 8px
+  nav_rail_width: 80px
+  gutter: 24px
+  margin_mobile: 16px
+  margin_tablet: 32px
+  touch_target_min: 48px
+---
+
+## Brand & Style
+
+The design system is engineered for **FAP Connect**, a specialized healthcare data collection platform. The brand personality is professional, clinical, and precise, yet approachable enough to reduce cognitive load during long data-entry sessions.
+
+The aesthetic follows a **Modern Corporate** style, blending the utility of Material Design 3 with the refined execution of high-end SaaS products like Linear and Stripe. This is achieved through:
+- **High Information Density with Clarity:** Balancing data-rich tables with generous whitespace.
+- **Precision Surfaces:** Using subtle borders and soft shadows rather than heavy color blocks.
+- **Tablet-First Utility:** Prioritizing landscape orientation and ergonomic touch targets for clinical environments.
+
+## Colors
+
+The palette is anchored in a "Medical Blue" and "Healthcare Teal" to evoke trust and hygiene. 
+- **Primary (#0284C7):** Used for primary actions, active navigation states, and critical progress indicators.
+- **Secondary (#0D9488):** Applied to success states, "Sync Complete" indicators, and secondary data categories.
+- **Neutrals:** A range of Slate grays provides the foundation for text and borders.
+- **Surface Strategy:** We utilize a "layered white" approach. The base background is slightly off-white (#F8FAFC), while interactive cards and containers are pure white (#FFFFFF) to create a subtle lift.
+
+## Typography
+
+This design system uses **Inter** exclusively to maintain a systematic, utilitarian feel. 
+- **Scale:** Font sizes are slightly larger than standard web apps to accommodate tablet viewing distances in clinical settings.
+- **Hierarchy:** Use `title-lg` for card headers and `body-lg` for primary data entry fields to ensure maximum legibility.
+- **Weights:** Medium (500) is preferred for labels to ensure they remain legible against light gray backgrounds.
+
+## Layout & Spacing
+
+This design system adopts a **Landscape-Optimized Fluid Grid** specifically tuned for 10" and 12" tablets.
+
+- **Navigation Rail:** A permanent vertical rail (80px) sits on the left, ensuring core navigation is always within thumb-reach when holding a tablet.
+- **Two-Column Reflow:** On landscape tablets, forms and data views should split into two columns (60/40 split) to minimize eye travel across wide screens.
+- **Touch Ergonomics:** A strict minimum touch target of 48px is enforced for all interactive elements. Spacing between interactive elements should never drop below 8px (1 unit).
+- **Safe Areas:** Maintain a 32px outer margin on tablets to prevent content from being obscured by hardware bezels or hands.
+
+## Elevation & Depth
+
+In alignment with MD3 and a premium aesthetic, we use **Tonal Elevation** combined with **Soft Ambient Shadows**.
+
+- **Level 0 (Background):** #F8FAFC - The canvas.
+- **Level 1 (Cards/Surface):** #FFFFFF - Uses a very soft shadow (0px 2px 4px rgba(0,0,0,0.05)) and a 1px border (#E2E8F0) to define boundaries.
+- **Level 2 (Overlays/Modals):** Pure white with a more pronounced shadow (0px 10px 15px rgba(0,0,0,0.1)) to focus user attention.
+
+Avoid heavy shadows. Depth should feel like layers of thin, high-quality paper rather than extruded blocks.
+
+## Shapes
+
+The shape language is "Softly Geometric."
+- **Standard Radius:** 8px (0.5rem) for buttons and input fields.
+- **Container Radius:** 16px (1rem) for cards and main content areas, creating a distinctive "premium app" feel.
+- **Full Rounding:** Reserved for status chips (Sync/Offline) and circular icon buttons.
+
+## Components
+
+### Buttons
+- **Primary:** Filled with #0284C7, white text. Min-height 48px.
+- **Secondary:** Outlined with 1px #E2E8F0, text #0284C7.
+- **States:** Subtle scale down (0.98) on tap to provide haptic-like visual feedback.
+
+### Input Fields
+- **Style:** Outlined MD3 style. Use 16px padding-x.
+- **Focus:** 2px solid border in Primary Blue.
+- **Validation:** Clear error text below the field; avoid using red-only indicators to ensure accessibility.
+
+### Cards
+- **Padding:** Always 24px internal padding.
+- **Structure:** 16px corner radius. Include a subtle 1px border to ensure visibility on all screen brightness levels.
+
+### Data Tables
+- **Row Height:** 56px minimum for touch friendliness.
+- **Visuals:** No vertical borders; use light horizontal dividers (#F1F5F9).
+- **Interactive:** Rows should have a subtle hover/tap state (#F8FAFC).
+
+### Status Indicators
+- **Syncing:** Pulsing Secondary Teal (#0D9488) dot with "Synced" label.
+- **Offline:** Amber/Orange dot with "Offline Mode" label, pinned to the bottom of the Nav Rail.

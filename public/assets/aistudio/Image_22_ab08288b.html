@@ -1,0 +1,474 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Family Medical Dashboard - Summary</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config injected from prompt -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#006f66",
+                    "tertiary-fixed": "#ffdcc0",
+                    "tertiary-fixed-dim": "#ffb875",
+                    "inverse-on-surface": "#eaf1ff",
+                    "primary": "#006194",
+                    "primary-container": "#007bb9",
+                    "on-tertiary-fixed": "#2d1600",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#f8f9ff",
+                    "inverse-surface": "#213145",
+                    "on-surface": "#0b1c30",
+                    "surface-container": "#e5eeff",
+                    "outline-variant": "#bfc7d2",
+                    "on-primary-fixed-variant": "#004b73",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-low": "#eff4ff",
+                    "on-primary-fixed": "#001d31",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#005049",
+                    "primary-fixed": "#cce5ff",
+                    "tertiary": "#894d00",
+                    "on-tertiary-fixed-variant": "#6b3b00",
+                    "on-surface-variant": "#3f4850",
+                    "tertiary-container": "#ac6200",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#fdfcff",
+                    "secondary-container": "#86f2e4",
+                    "surface-container-high": "#dce9ff",
+                    "secondary": "#006a61",
+                    "surface": "#f8f9ff",
+                    "surface-dim": "#cbdbf5",
+                    "surface-variant": "#d3e4fe",
+                    "on-primary": "#ffffff",
+                    "outline": "#707881",
+                    "inverse-primary": "#93ccff",
+                    "secondary-fixed-dim": "#6bd8cb",
+                    "background": "#f8f9ff",
+                    "on-background": "#0b1c30",
+                    "primary-fixed-dim": "#93ccff",
+                    "on-tertiary-container": "#fffbff",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#89f5e7",
+                    "on-secondary-fixed": "#00201d",
+                    "surface-tint": "#006398"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "nav_rail_width": "80px",
+                    "margin_tablet": "32px",
+                    "touch_target_min": "48px",
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "margin_mobile": "16px"
+            },
+            "fontFamily": {
+                    "title-lg": [
+                            "Inter"
+                    ],
+                    "title-md": [
+                            "Inter"
+                    ],
+                    "label-lg": [
+                            "Inter"
+                    ],
+                    "label-sm": [
+                            "Inter"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "display-lg": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Inter"
+                    ],
+                    "headline-lg": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "title-lg": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "title-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-lg": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.1px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.5px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+        },
+        },
+      }
+    </script>
+<style>
+        /* Custom scrollbar for clean aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #bfc7d2;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #707881;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md flex h-screen overflow-hidden antialiased">
+<!-- 
+      Component: SideNavBar 
+      Type: Rail 
+    -->
+<nav class="fixed left-0 top-0 h-full w-[80px] bg-surface dark:bg-surface-container-low border-r border-outline-variant flex flex-col items-center py-4 gap-4 z-50">
+<!-- Brand/Avatar area (Simulated for rail space) -->
+<div class="mb-4 flex flex-col items-center justify-center w-full">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center mb-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
+</div>
+</div>
+<!-- Scrollable Tabs Area -->
+<div class="flex-1 overflow-y-auto w-full flex flex-col items-center gap-2 no-scrollbar px-2">
+<!-- Dashboard -->
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Dashboard">
+<span class="material-symbols-outlined">dashboard</span>
+</button>
+<!-- Assigned Families -->
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Assigned Families">
+<span class="material-symbols-outlined">group</span>
+</button>
+<!-- Family Details -->
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Family Details">
+<span class="material-symbols-outlined">description</span>
+</button>
+<!-- Family Members -->
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Family Members">
+<span class="material-symbols-outlined">person</span>
+</button>
+<!-- Housing -->
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Housing">
+<span class="material-symbols-outlined">home</span>
+</button>
+<!-- Economic Data -->
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Economic Data">
+<span class="material-symbols-outlined">payments</span>
+</button>
+<!-- Social History -->
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Social History">
+<span class="material-symbols-outlined">history</span>
+</button>
+<!-- Clinical Examination -->
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Clinical Examination">
+<span class="material-symbols-outlined">medical_services</span>
+</button>
+<!-- Laboratory Investigation -->
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Laboratory Investigation">
+<span class="material-symbols-outlined">biotech</span>
+</button>
+<!-- Vital Events -->
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Vital Events">
+<span class="material-symbols-outlined">event</span>
+</button>
+<!-- TB Screening -->
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="TB Screening">
+<span class="material-symbols-outlined">emergency</span>
+</button>
+<!-- Summary (ACTIVE STATE) -->
+<button class="bg-secondary-container text-on-secondary-container rounded-xl w-14 h-14 flex flex-col items-center justify-center hover:bg-surface-container-high transition-colors active:scale-95 duration-100" title="Summary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">summarize</span>
+</button>
+<!-- Pending Sync -->
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Pending Sync">
+<span class="material-symbols-outlined relative">
+                    sync_problem
+                    <span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</span>
+</button>
+<!-- Settings -->
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Settings">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<!-- Footer actions -->
+<div class="mt-auto flex flex-col items-center w-full px-2 pt-2 border-t border-outline-variant">
+<button class="text-tertiary flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Offline Mode">
+<span class="material-symbols-outlined">cloud_off</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col ml-[80px] min-w-0 h-screen overflow-hidden">
+<!-- 
+          Component: TopNavBar 
+        -->
+<header class="sticky top-0 z-40 w-full bg-surface shadow-sm flex justify-between items-center h-16 px-8 flex-shrink-0">
+<!-- Brand -->
+<div class="font-headline-md text-headline-md font-bold text-primary">
+                FAP Connect
+            </div>
+<!-- Actions -->
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors active:scale-98">
+<span class="material-symbols-outlined">sync</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors active:scale-98">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 overflow-y-auto p-margin_tablet bg-surface-bright">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-gutter">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-2">Family Summary</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Comprehensive health and socio-economic overview for Household #4029.</p>
+</div>
+<div class="flex gap-4">
+<button class="h-[48px] px-6 rounded-full border border-outline text-primary hover:bg-surface-container-low transition-colors font-label-lg text-label-lg flex items-center gap-2">
+<span class="material-symbols-outlined">print</span>
+                        Print Report
+                    </button>
+<button class="h-[48px] px-6 rounded-full bg-primary text-on-primary hover:bg-primary-container transition-colors font-label-lg text-label-lg flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined">edit_note</span>
+                        Update Data
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- ROW 1: High Level Stats -->
+<!-- Family Size -->
+<div class="col-span-1 md:col-span-3 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm p-gutter flex flex-col justify-between min-h-[160px] relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-fixed opacity-20 rounded-bl-full -mr-8 -mt-8"></div>
+<div class="flex items-center gap-2 text-on-surface-variant mb-4">
+<span class="material-symbols-outlined">group</span>
+<h3 class="font-title-md text-title-md">Family Size</h3>
+</div>
+<div>
+<div class="font-display-lg text-display-lg text-on-surface">6</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Total Members Registered</p>
+</div>
+</div>
+<!-- Demographics Breakdown -->
+<div class="col-span-1 md:col-span-6 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm p-gutter flex flex-col min-h-[160px]">
+<h3 class="font-title-md text-title-md text-on-surface-variant mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">pie_chart</span>
+                        Vulnerable Demographics
+                    </h3>
+<div class="flex-1 flex items-center justify-around">
+<div class="flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center mb-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">child_care</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface">3</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Children (&lt;5y)</span>
+</div>
+<div class="w-px h-16 bg-outline-variant opacity-50"></div>
+<div class="flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center mb-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">pregnant_woman</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface">1</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Pregnant</span>
+</div>
+<div class="w-px h-16 bg-outline-variant opacity-50"></div>
+<div class="flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center mb-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">elderly</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface">1</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Senior Citizens</span>
+</div>
+</div>
+</div>
+<!-- Socio-Economic Status -->
+<div class="col-span-1 md:col-span-3 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm p-gutter flex flex-col min-h-[160px]">
+<div class="flex items-center gap-2 text-on-surface-variant mb-4">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<h3 class="font-title-md text-title-md">Income Category</h3>
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<div class="inline-flex items-center gap-2 bg-error-container text-on-error-container px-3 py-1 rounded-full font-label-sm text-label-sm w-max mb-2">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+                            Below Poverty Line (BPL)
+                        </div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Card Type: Red (Antyodaya)</p>
+</div>
+</div>
+<!-- ROW 2: Health Risks & Indicators (Critical) -->
+<!-- Clinical Flags -->
+<div class="col-span-1 md:col-span-8 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm p-gutter flex flex-col">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-6 flex items-center gap-2 border-b border-outline-variant pb-4">
+<span class="material-symbols-outlined text-error">health_metrics</span>
+                        Clinical Risk Flags
+                    </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- TB Cases -->
+<div class="bg-error-container/20 border border-error-container rounded-lg p-4 flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-error text-on-error flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined">coronavirus</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface">TB Cases Detected</h4>
+<div class="font-headline-lg text-headline-lg text-error my-1">1 Active</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Member: Ramesh (45M) - On DOTS therapy.</p>
+</div>
+</div>
+<!-- Anaemia -->
+<div class="bg-surface-container rounded-lg p-4 flex items-start gap-4 border border-outline-variant">
+<div class="w-10 h-10 rounded-full bg-surface-variant text-on-surface flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined">bloodtype</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface">Anaemia Risk</h4>
+<div class="font-headline-lg text-headline-lg text-on-surface my-1">2 Severe</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Requires iron supplements follow-up.</p>
+</div>
+</div>
+<!-- Nutrition: Underweight -->
+<div class="bg-surface-container rounded-lg p-4 flex items-start gap-4 border border-outline-variant">
+<div class="w-10 h-10 rounded-full bg-surface-variant text-on-surface flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined">scale</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface">Underweight (SAM/MAM)</h4>
+<div class="font-headline-lg text-headline-lg text-on-surface my-1">1 MAM</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Child under 5. Nutritional intervention needed.</p>
+</div>
+</div>
+<!-- Nutrition: Overweight -->
+<div class="bg-surface-container rounded-lg p-4 flex items-start gap-4 border border-outline-variant opacity-60">
+<div class="w-10 h-10 rounded-full bg-surface-variant text-on-surface flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined">monitor_weight</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface">Overweight / Obesity</h4>
+<div class="font-headline-lg text-headline-lg text-on-surface my-1">0</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">No members flagged.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- ROW 2: Environment & Social -->
+<div class="col-span-1 md:col-span-4 flex flex-col gap-gutter">
+<!-- Housing Quality -->
+<div class="flex-1 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm p-gutter flex flex-col">
+<div class="flex items-center gap-2 text-on-surface-variant mb-4">
+<span class="material-symbols-outlined">house</span>
+<h3 class="font-title-md text-title-md">Housing Quality</h3>
+</div>
+<div class="flex-1 flex flex-col justify-center items-center text-center">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[32px]">roofing</span>
+</div>
+<span class="font-title-lg text-title-lg text-on-surface">Kutcha House</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2 px-4 py-1 bg-surface-container rounded-full">Inadequate Sanitation</span>
+</div>
+</div>
+<!-- School Dropouts -->
+<div class="flex-1 bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm p-gutter flex flex-col">
+<div class="flex items-center gap-2 text-on-surface-variant mb-4">
+<span class="material-symbols-outlined">school</span>
+<h3 class="font-title-md text-title-md">Education Status</h3>
+</div>
+<div class="flex-1 flex items-center gap-4">
+<div class="font-display-lg text-display-lg text-tertiary">1</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface">School Dropout</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">14 year old female.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Spacer for ergonomics -->
+<div class="h-16 w-full"></div>
+</main>
+</div>
+</body></html>

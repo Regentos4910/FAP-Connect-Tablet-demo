@@ -1,0 +1,6 @@
+{
+  "name": "FAP Connect - Clinical & Community Medicine Portal",
+  "description": "Comprehensive offline-ready clinical data portal for medical students and faculty in Family Adoption Programmes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

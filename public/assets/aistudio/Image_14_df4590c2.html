@@ -1,0 +1,415 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Clinical Examination - FAP Connect</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#006f66",
+                        "tertiary-fixed": "#ffdcc0",
+                        "tertiary-fixed-dim": "#ffb875",
+                        "inverse-on-surface": "#eaf1ff",
+                        "primary": "#006194",
+                        "primary-container": "#007bb9",
+                        "on-tertiary-fixed": "#2d1600",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f8f9ff",
+                        "inverse-surface": "#213145",
+                        "on-surface": "#0b1c30",
+                        "surface-container": "#e5eeff",
+                        "outline-variant": "#bfc7d2",
+                        "on-primary-fixed-variant": "#004b73",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-fixed": "#001d31",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#005049",
+                        "primary-fixed": "#cce5ff",
+                        "tertiary": "#894d00",
+                        "on-tertiary-fixed-variant": "#6b3b00",
+                        "on-surface-variant": "#3f4850",
+                        "tertiary-container": "#ac6200",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#fdfcff",
+                        "secondary-container": "#86f2e4",
+                        "surface-container-high": "#dce9ff",
+                        "secondary": "#006a61",
+                        "surface": "#f8f9ff",
+                        "surface-dim": "#cbdbf5",
+                        "surface-variant": "#d3e4fe",
+                        "on-primary": "#ffffff",
+                        "outline": "#707881",
+                        "inverse-primary": "#93ccff",
+                        "secondary-fixed-dim": "#6bd8cb",
+                        "background": "#f8f9ff",
+                        "on-background": "#0b1c30",
+                        "primary-fixed-dim": "#93ccff",
+                        "on-tertiary-container": "#fffbff",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#89f5e7",
+                        "on-secondary-fixed": "#00201d",
+                        "surface-tint": "#006398"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "nav_rail_width": "80px",
+                        "margin_tablet": "32px",
+                        "touch_target_min": "48px",
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "margin_mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "title-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .card-shadow { box-shadow: 0px 2px 4px rgba(0,0,0,0.05); }
+        .overlay-shadow { box-shadow: 0px 10px 15px rgba(0,0,0,0.1); }
+        
+        /* Hide scrollbar for nav rail */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar (Rail) -->
+<nav class="bg-surface dark:bg-surface-container-low border-r border-outline-variant dark:border-outline fixed left-0 top-0 h-full w-[80px] flex flex-col items-center py-4 gap-4 z-50 overflow-y-auto no-scrollbar">
+<!-- Header / Brand -->
+<div class="flex flex-col items-center gap-1 mb-4 w-full px-2">
+<div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center text-on-primary-container mb-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_hospital</span>
+</div>
+<span class="font-label-sm text-label-sm text-center font-bold text-primary dark:text-primary-fixed leading-tight">FAP Connect</span>
+</div>
+<!-- Navigation Links -->
+<div class="flex flex-col gap-2 w-full px-2 flex-1">
+<a class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl mx-auto" href="#" title="Dashboard">
+<span class="material-symbols-outlined">dashboard</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl mx-auto" href="#" title="Assigned Families">
+<span class="material-symbols-outlined">group</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl mx-auto" href="#" title="Family Details">
+<span class="material-symbols-outlined">description</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl mx-auto" href="#" title="Family Members">
+<span class="material-symbols-outlined">person</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl mx-auto" href="#" title="Housing">
+<span class="material-symbols-outlined">home</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl mx-auto" href="#" title="Economic Data">
+<span class="material-symbols-outlined">payments</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl mx-auto" href="#" title="Social History">
+<span class="material-symbols-outlined">history</span>
+</a>
+<!-- Active Tab -->
+<a class="bg-secondary-container text-on-secondary-container rounded-xl w-14 h-14 flex flex-col items-center justify-center active:scale-95 duration-100 mx-auto" href="#" title="Clinical Examination">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl mx-auto" href="#" title="Laboratory Investigation">
+<span class="material-symbols-outlined">biotech</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl mx-auto" href="#" title="Vital Events">
+<span class="material-symbols-outlined">event</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl mx-auto" href="#" title="TB Screening">
+<span class="material-symbols-outlined">emergency</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl mx-auto" href="#" title="Summary">
+<span class="material-symbols-outlined">summarize</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl mx-auto" href="#" title="Pending Sync">
+<span class="material-symbols-outlined">sync_problem</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl mx-auto mt-auto" href="#" title="Settings">
+<span class="material-symbols-outlined">settings</span>
+</a>
+</div>
+<!-- Footer -->
+<div class="mt-auto mb-2 px-2">
+<div class="flex flex-col items-center gap-1 group cursor-pointer" title="Offline Mode Active">
+<div class="w-10 h-10 rounded-full bg-error-container text-on-error-container flex items-center justify-center relative">
+<span class="material-symbols-outlined text-sm">cloud_off</span>
+<span class="absolute top-0 right-0 w-3 h-3 bg-error rounded-full border-2 border-surface"></span>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-[80px] flex flex-col min-h-screen relative">
+<!-- TopNavBar (Action Bar Variant) -->
+<header class="sticky top-0 z-40 w-full bg-surface-container-highest dark:bg-surface-container-high shadow-md flex justify-between items-center py-2 px-8 h-16 border-b border-outline-variant/30">
+<div class="flex items-center gap-4">
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">Clinical Examination</h1>
+<span class="font-label-sm text-label-sm italic text-on-surface-variant bg-surface px-3 py-1 rounded-full border border-outline-variant/50">Draft Mode</span>
+</div>
+<div class="flex justify-end items-center gap-4">
+<button class="font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high px-4 py-2 rounded-lg transition-colors min-h-[48px] flex items-center gap-2 active:scale-[0.98]">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+                    Previous
+                </button>
+<button class="font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high px-4 py-2 rounded-lg transition-colors min-h-[48px] flex items-center gap-2 active:scale-[0.98]">
+                    Next
+                    <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+<div class="h-8 w-px bg-outline-variant mx-2"></div>
+<button class="font-label-lg text-label-lg text-primary font-bold hover:bg-primary-container hover:text-on-primary-container px-6 py-2 rounded-lg transition-all min-h-[48px] border border-primary/20 flex items-center gap-2 active:scale-[0.98] shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">save</span>
+                    Save Record
+                </button>
+</div>
+</header>
+<!-- Landscape Tablet Optimized Grid Container -->
+<div class="flex-1 p-margin_tablet lg:p-[40px] max-w-[1600px] mx-auto w-full">
+<!-- Patient Context Header (Brief) -->
+<div class="bg-surface border border-outline-variant rounded-xl p-4 mb-8 flex items-center gap-6 card-shadow">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-title-lg text-title-lg">
+                    JD
+                </div>
+<div>
+<h2 class="font-title-lg text-title-lg text-on-surface">John Doe</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">45 yrs • Male • ID: FAM-492-01</p>
+</div>
+<div class="ml-auto flex gap-4 text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex flex-col text-right">
+<span class="opacity-70">Last Visit</span>
+<span class="font-medium">12 Oct 2023</span>
+</div>
+</div>
+</div>
+<!-- Two-Column Reflow Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- LEFT COLUMN: Vitals (60% split) -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<div class="flex items-center justify-between border-b border-outline-variant pb-2">
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">monitor_heart</span>
+                            Vital Signs
+                        </h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Recorded Today</span>
+</div>
+<!-- Bento Grid for Vitals -->
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+<!-- Height -->
+<div class="bg-surface border border-outline-variant rounded-xl p-5 card-shadow flex flex-col gap-3 group focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
+<label class="font-label-lg text-label-lg text-on-surface-variant flex items-center gap-1" for="vital-height">
+                                Height
+                            </label>
+<div class="relative flex items-center">
+<input class="w-full bg-transparent border-none p-0 text-headline-lg font-headline-lg text-on-surface focus:ring-0 placeholder:text-outline/40" id="vital-height" placeholder="0.0" type="number">
+<span class="absolute right-0 font-body-md text-body-md text-on-surface-variant font-medium">cm</span>
+</div>
+</div>
+<!-- Weight -->
+<div class="bg-surface border border-outline-variant rounded-xl p-5 card-shadow flex flex-col gap-3 group focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
+<label class="font-label-lg text-label-lg text-on-surface-variant flex items-center gap-1" for="vital-weight">
+                                Weight
+                            </label>
+<div class="relative flex items-center">
+<input class="w-full bg-transparent border-none p-0 text-headline-lg font-headline-lg text-on-surface focus:ring-0 placeholder:text-outline/40" id="vital-weight" placeholder="0.0" type="number">
+<span class="absolute right-0 font-body-md text-body-md text-on-surface-variant font-medium">kg</span>
+</div>
+</div>
+<!-- BMI (Auto-calculated mock) -->
+<div class="bg-surface-variant/30 border border-outline-variant/50 rounded-xl p-5 flex flex-col gap-3">
+<span class="font-label-lg text-label-lg text-on-surface-variant">BMI</span>
+<div class="flex items-baseline gap-2 mt-auto">
+<span class="text-headline-lg font-headline-lg text-on-surface/50">--</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface px-2 py-0.5 rounded">Auto</span>
+</div>
+</div>
+<!-- Pulse -->
+<div class="bg-surface border border-outline-variant rounded-xl p-5 card-shadow flex flex-col gap-3 group focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
+<label class="font-label-lg text-label-lg text-on-surface-variant flex items-center gap-1" for="vital-pulse">
+                                Pulse
+                            </label>
+<div class="relative flex items-center">
+<input class="w-full bg-transparent border-none p-0 text-headline-lg font-headline-lg text-on-surface focus:ring-0 placeholder:text-outline/40" id="vital-pulse" placeholder="0" type="number">
+<span class="absolute right-0 font-body-md text-body-md text-on-surface-variant font-medium">bpm</span>
+</div>
+</div>
+<!-- Blood Pressure (Spans 2 cols) -->
+<div class="md:col-span-2 bg-surface border border-outline-variant rounded-xl p-5 card-shadow flex flex-col gap-3 group focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
+<label class="font-label-lg text-label-lg text-on-surface-variant flex items-center gap-1">
+                                Blood Pressure (Sys/Dia)
+                            </label>
+<div class="flex items-center gap-4 w-full">
+<input class="w-full bg-transparent border-b-2 border-outline-variant/30 p-1 text-headline-lg font-headline-lg text-on-surface focus:border-primary focus:ring-0 placeholder:text-outline/40 text-center" id="vital-bp-sys" placeholder="120" type="number">
+<span class="text-headline-lg text-outline-variant font-light">/</span>
+<input class="w-full bg-transparent border-b-2 border-outline-variant/30 p-1 text-headline-lg font-headline-lg text-on-surface focus:border-primary focus:ring-0 placeholder:text-outline/40 text-center" id="vital-bp-dia" placeholder="80" type="number">
+<span class="font-body-md text-body-md text-on-surface-variant font-medium ml-2">mmHg</span>
+</div>
+</div>
+<!-- Respiratory Rate -->
+<div class="bg-surface border border-outline-variant rounded-xl p-5 card-shadow flex flex-col gap-3 group focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
+<label class="font-label-lg text-label-lg text-on-surface-variant flex items-center gap-1" for="vital-resp">
+                                Resp. Rate
+                            </label>
+<div class="relative flex items-center">
+<input class="w-full bg-transparent border-none p-0 text-headline-lg font-headline-lg text-on-surface focus:ring-0 placeholder:text-outline/40" id="vital-resp" placeholder="0" type="number">
+<span class="absolute right-0 font-body-md text-body-md text-on-surface-variant font-medium">/min</span>
+</div>
+</div>
+<!-- Blood Sugar -->
+<div class="bg-surface border border-outline-variant rounded-xl p-5 card-shadow flex flex-col gap-3 group focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
+<label class="font-label-lg text-label-lg text-on-surface-variant flex items-center gap-1" for="vital-bs">
+                                Blood Sugar (RBS)
+                            </label>
+<div class="relative flex items-center">
+<input class="w-full bg-transparent border-none p-0 text-headline-lg font-headline-lg text-on-surface focus:ring-0 placeholder:text-outline/40" id="vital-bs" placeholder="0" type="number">
+<span class="absolute right-0 font-body-md text-body-md text-on-surface-variant font-medium">mg/dL</span>
+</div>
+</div>
+<!-- Hemoglobin -->
+<div class="bg-surface border border-outline-variant rounded-xl p-5 card-shadow flex flex-col gap-3 group focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
+<label class="font-label-lg text-label-lg text-on-surface-variant flex items-center gap-1" for="vital-hb">
+                                Hemoglobin
+                            </label>
+<div class="relative flex items-center">
+<input class="w-full bg-transparent border-none p-0 text-headline-lg font-headline-lg text-on-surface focus:ring-0 placeholder:text-outline/40" id="vital-hb" placeholder="0.0" type="number">
+<span class="absolute right-0 font-body-md text-body-md text-on-surface-variant font-medium">g/dL</span>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Notes & Tables (40% split) -->
+<div class="lg:col-span-5 flex flex-col gap-8">
+<!-- Clinical Notes Section -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between border-b border-outline-variant pb-2">
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">edit_note</span>
+                                Clinical Notes
+                            </h3>
+</div>
+<!-- Diagnosis -->
+<div class="flex flex-col gap-2">
+<label class="font-label-lg text-label-lg text-on-surface font-medium" for="note-diagnosis">Diagnosis / Impression</label>
+<textarea class="w-full bg-surface border border-outline-variant rounded-xl p-4 min-h-[100px] text-body-md font-body-md focus:border-primary focus:ring-1 focus:ring-primary resize-y card-shadow" id="note-diagnosis" placeholder="Enter clinical diagnosis..."></textarea>
+</div>
+<!-- Treatment -->
+<div class="flex flex-col gap-2">
+<label class="font-label-lg text-label-lg text-on-surface font-medium" for="note-treatment">Treatment Plan</label>
+<textarea class="w-full bg-surface border border-outline-variant rounded-xl p-4 min-h-[120px] text-body-md font-body-md focus:border-primary focus:ring-1 focus:ring-primary resize-y card-shadow" id="note-treatment" placeholder="Prescriptions, procedures, next steps..."></textarea>
+</div>
+<!-- Lifestyle Advice -->
+<div class="flex flex-col gap-2">
+<label class="font-label-lg text-label-lg text-on-surface font-medium" for="note-advice">Lifestyle Advice</label>
+<textarea class="w-full bg-surface border border-outline-variant rounded-xl p-4 min-h-[80px] text-body-md font-body-md focus:border-primary focus:ring-1 focus:ring-primary resize-y card-shadow" id="note-advice" placeholder="Dietary changes, exercise, counseling..."></textarea>
+</div>
+</div>
+<!-- Urine Findings Table -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between border-b border-outline-variant pb-2">
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">science</span>
+                                Urine Findings
+                            </h3>
+</div>
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden card-shadow">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="p-4 font-label-lg text-label-lg font-semibold text-on-surface-variant w-1/3">Parameter</th>
+<th class="p-4 font-label-lg text-label-lg font-semibold text-on-surface-variant w-1/3">Result</th>
+<th class="p-4 font-label-lg text-label-lg font-semibold text-on-surface-variant w-1/3">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-outline-variant/30 hover:bg-surface-container-lowest transition-colors h-[56px]">
+<td class="p-4 font-body-md text-body-md text-on-surface font-medium">Protein</td>
+<td class="p-2">
+<select class="w-full bg-transparent border border-outline-variant rounded-lg px-3 py-2 text-body-md focus:border-primary focus:ring-1 focus:ring-primary h-[40px]">
+<option value="nil">Nil</option>
+<option value="trace">Trace</option>
+<option value="1+">1+</option>
+<option value="2+">2+</option>
+<option value="3+">3+</option>
+</select>
+</td>
+<td class="p-2">
+<input class="w-full bg-transparent border-none border-b border-outline-variant/30 focus:border-primary focus:ring-0 px-2 py-2 text-body-md h-[40px]" placeholder="-" type="text">
+</td>
+</tr>
+<tr class="border-b border-outline-variant/30 hover:bg-surface-container-lowest transition-colors h-[56px]">
+<td class="p-4 font-body-md text-body-md text-on-surface font-medium">Sugar</td>
+<td class="p-2">
+<select class="w-full bg-transparent border border-outline-variant rounded-lg px-3 py-2 text-body-md focus:border-primary focus:ring-1 focus:ring-primary h-[40px]">
+<option value="nil">Nil</option>
+<option value="trace">Trace</option>
+<option value="1+">1+</option>
+<option value="2+">2+</option>
+<option value="3+">3+</option>
+</select>
+</td>
+<td class="p-2">
+<input class="w-full bg-transparent border-none border-b border-outline-variant/30 focus:border-primary focus:ring-0 px-2 py-2 text-body-md h-[40px]" placeholder="-" type="text">
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors h-[56px]">
+<td class="p-4 font-body-md text-body-md text-on-surface font-medium">Ketones</td>
+<td class="p-2">
+<select class="w-full bg-transparent border border-outline-variant rounded-lg px-3 py-2 text-body-md focus:border-primary focus:ring-1 focus:ring-primary h-[40px]">
+<option value="negative">Negative</option>
+<option value="positive">Positive</option>
+</select>
+</td>
+<td class="p-2">
+<input class="w-full bg-transparent border-none border-b border-outline-variant/30 focus:border-primary focus:ring-0 px-2 py-2 text-body-md h-[40px]" placeholder="-" type="text">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Spacing for Scrolling -->
+<div class="h-24"></div>
+</div>
+</main>
+</body></html>

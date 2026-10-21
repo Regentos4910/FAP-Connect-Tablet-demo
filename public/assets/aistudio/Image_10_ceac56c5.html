@@ -1,0 +1,419 @@
+<!DOCTYPE html><html class="h-full bg-background antialiased" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Dashboard - FAP Connect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error-container": "#93000a",
+                      "on-secondary-container": "#006f66",
+                      "tertiary-fixed": "#ffdcc0",
+                      "tertiary-fixed-dim": "#ffb875",
+                      "inverse-on-surface": "#eaf1ff",
+                      "primary": "#006194",
+                      "primary-container": "#007bb9",
+                      "on-tertiary-fixed": "#2d1600",
+                      "error": "#ba1a1a",
+                      "on-error": "#ffffff",
+                      "surface-bright": "#f8f9ff",
+                      "inverse-surface": "#213145",
+                      "on-surface": "#0b1c30",
+                      "surface-container": "#e5eeff",
+                      "outline-variant": "#bfc7d2",
+                      "on-primary-fixed-variant": "#004b73",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-low": "#eff4ff",
+                      "on-primary-fixed": "#001d31",
+                      "surface-container-highest": "#d3e4fe",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-fixed-variant": "#005049",
+                      "primary-fixed": "#cce5ff",
+                      "tertiary": "#894d00",
+                      "on-tertiary-fixed-variant": "#6b3b00",
+                      "on-surface-variant": "#3f4850",
+                      "tertiary-container": "#ac6200",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-container": "#fdfcff",
+                      "secondary-container": "#86f2e4",
+                      "surface-container-high": "#dce9ff",
+                      "secondary": "#006a61",
+                      "surface": "#f8f9ff",
+                      "surface-dim": "#cbdbf5",
+                      "surface-variant": "#d3e4fe",
+                      "on-primary": "#ffffff",
+                      "outline": "#707881",
+                      "inverse-primary": "#93ccff",
+                      "secondary-fixed-dim": "#6bd8cb",
+                      "background": "#f8f9ff",
+                      "on-background": "#0b1c30",
+                      "primary-fixed-dim": "#93ccff",
+                      "on-tertiary-container": "#fffbff",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed": "#89f5e7",
+                      "on-secondary-fixed": "#00201d",
+                      "surface-tint": "#006398"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "nav_rail_width": "80px",
+                      "margin_tablet": "32px",
+                      "touch_target_min": "48px",
+                      "unit": "8px",
+                      "gutter": "24px",
+                      "margin_mobile": "16px"
+              },
+              "fontFamily": {
+                      "title-lg": [
+                              "Inter"
+                      ],
+                      "title-md": [
+                              "Inter"
+                      ],
+                      "label-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "title-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "title-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-lg": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.1px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.5px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+          font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+      </style>
+</head>
+<body class="h-full flex text-on-surface">
+<!-- SideNavBar (Rail) -->
+<nav class="fixed left-0 top-0 h-full w-[80px] bg-surface dark:bg-surface-container-low border-r border-outline-variant dark:border-outline z-50 flex flex-col items-center py-4 gap-4 overflow-y-auto">
+<!-- Brand/Avatar Area -->
+<div class="mb-4 flex flex-col items-center gap-1 w-full px-2">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-title-lg text-title-lg font-bold mb-2">
+                MS
+            </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-center leading-tight truncate w-full px-1" title="FAP Connect">FAP<br>Connect</span>
+</div>
+<!-- Navigation Items -->
+<button class="bg-secondary-container text-on-secondary-container rounded-xl w-14 h-14 flex flex-col items-center justify-center active:scale-95 duration-100 group relative">
+<span class="material-symbols-outlined filled text-2xl mb-0.5">dashboard</span>
+<span class="font-label-sm text-[10px] leading-none text-center px-0.5 w-full truncate absolute -bottom-5 opacity-0 group-hover:opacity-100 transition-opacity bg-surface-container-high py-1 rounded shadow-sm z-10 whitespace-nowrap left-1/2 -translate-x-1/2 pointer-events-none">Dashboard</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors rounded-xl active:scale-95 duration-100 group relative">
+<span class="material-symbols-outlined text-2xl mb-0.5">group</span>
+<span class="font-label-sm text-[10px] leading-none text-center px-0.5 w-full truncate absolute -bottom-5 opacity-0 group-hover:opacity-100 transition-opacity bg-surface-container-high py-1 rounded shadow-sm z-10 whitespace-nowrap left-1/2 -translate-x-1/2 pointer-events-none">Assigned Families</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors rounded-xl active:scale-95 duration-100 group relative">
+<span class="material-symbols-outlined text-2xl mb-0.5">description</span>
+<span class="font-label-sm text-[10px] leading-none text-center px-0.5 w-full truncate absolute -bottom-5 opacity-0 group-hover:opacity-100 transition-opacity bg-surface-container-high py-1 rounded shadow-sm z-10 whitespace-nowrap left-1/2 -translate-x-1/2 pointer-events-none">Family Details</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors rounded-xl active:scale-95 duration-100 group relative">
+<span class="material-symbols-outlined text-2xl mb-0.5">person</span>
+<span class="font-label-sm text-[10px] leading-none text-center px-0.5 w-full truncate absolute -bottom-5 opacity-0 group-hover:opacity-100 transition-opacity bg-surface-container-high py-1 rounded shadow-sm z-10 whitespace-nowrap left-1/2 -translate-x-1/2 pointer-events-none">Family Members</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors rounded-xl active:scale-95 duration-100 group relative">
+<span class="material-symbols-outlined text-2xl mb-0.5">home</span>
+<span class="font-label-sm text-[10px] leading-none text-center px-0.5 w-full truncate absolute -bottom-5 opacity-0 group-hover:opacity-100 transition-opacity bg-surface-container-high py-1 rounded shadow-sm z-10 whitespace-nowrap left-1/2 -translate-x-1/2 pointer-events-none">Housing</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors rounded-xl active:scale-95 duration-100 group relative">
+<span class="material-symbols-outlined text-2xl mb-0.5">payments</span>
+<span class="font-label-sm text-[10px] leading-none text-center px-0.5 w-full truncate absolute -bottom-5 opacity-0 group-hover:opacity-100 transition-opacity bg-surface-container-high py-1 rounded shadow-sm z-10 whitespace-nowrap left-1/2 -translate-x-1/2 pointer-events-none">Economic Data</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors rounded-xl active:scale-95 duration-100 group relative">
+<span class="material-symbols-outlined text-2xl mb-0.5">history</span>
+<span class="font-label-sm text-[10px] leading-none text-center px-0.5 w-full truncate absolute -bottom-5 opacity-0 group-hover:opacity-100 transition-opacity bg-surface-container-high py-1 rounded shadow-sm z-10 whitespace-nowrap left-1/2 -translate-x-1/2 pointer-events-none">Social History</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors rounded-xl active:scale-95 duration-100 group relative">
+<span class="material-symbols-outlined text-2xl mb-0.5">medical_services</span>
+<span class="font-label-sm text-[10px] leading-none text-center px-0.5 w-full truncate absolute -bottom-5 opacity-0 group-hover:opacity-100 transition-opacity bg-surface-container-high py-1 rounded shadow-sm z-10 whitespace-nowrap left-1/2 -translate-x-1/2 pointer-events-none">Clinical Examination</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors rounded-xl active:scale-95 duration-100 group relative">
+<span class="material-symbols-outlined text-2xl mb-0.5">biotech</span>
+<span class="font-label-sm text-[10px] leading-none text-center px-0.5 w-full truncate absolute -bottom-5 opacity-0 group-hover:opacity-100 transition-opacity bg-surface-container-high py-1 rounded shadow-sm z-10 whitespace-nowrap left-1/2 -translate-x-1/2 pointer-events-none">Laboratory Investigation</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors rounded-xl active:scale-95 duration-100 group relative">
+<span class="material-symbols-outlined text-2xl mb-0.5">event</span>
+<span class="font-label-sm text-[10px] leading-none text-center px-0.5 w-full truncate absolute -bottom-5 opacity-0 group-hover:opacity-100 transition-opacity bg-surface-container-high py-1 rounded shadow-sm z-10 whitespace-nowrap left-1/2 -translate-x-1/2 pointer-events-none">Vital Events</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors rounded-xl active:scale-95 duration-100 group relative">
+<span class="material-symbols-outlined text-2xl mb-0.5">emergency</span>
+<span class="font-label-sm text-[10px] leading-none text-center px-0.5 w-full truncate absolute -bottom-5 opacity-0 group-hover:opacity-100 transition-opacity bg-surface-container-high py-1 rounded shadow-sm z-10 whitespace-nowrap left-1/2 -translate-x-1/2 pointer-events-none">TB Screening</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors rounded-xl active:scale-95 duration-100 group relative">
+<span class="material-symbols-outlined text-2xl mb-0.5">summarize</span>
+<span class="font-label-sm text-[10px] leading-none text-center px-0.5 w-full truncate absolute -bottom-5 opacity-0 group-hover:opacity-100 transition-opacity bg-surface-container-high py-1 rounded shadow-sm z-10 whitespace-nowrap left-1/2 -translate-x-1/2 pointer-events-none">Summary</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors rounded-xl active:scale-95 duration-100 group relative relative">
+<span class="material-symbols-outlined text-2xl mb-0.5">sync_problem</span>
+<!-- Alert Badge -->
+<span class="absolute top-1 right-2 w-3 h-3 bg-error rounded-full border-2 border-surface"></span>
+<span class="font-label-sm text-[10px] leading-none text-center px-0.5 w-full truncate absolute -bottom-5 opacity-0 group-hover:opacity-100 transition-opacity bg-surface-container-high py-1 rounded shadow-sm z-10 whitespace-nowrap left-1/2 -translate-x-1/2 pointer-events-none">Pending Sync</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors rounded-xl active:scale-95 duration-100 group relative mt-auto">
+<span class="material-symbols-outlined text-2xl mb-0.5">settings</span>
+<span class="font-label-sm text-[10px] leading-none text-center px-0.5 w-full truncate absolute -bottom-5 opacity-0 group-hover:opacity-100 transition-opacity bg-surface-container-high py-1 rounded shadow-sm z-10 whitespace-nowrap left-1/2 -translate-x-1/2 pointer-events-none">Settings</span>
+</button>
+<!-- Footer / Status -->
+<div class="mt-4 flex flex-col items-center gap-1 group relative cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">cloud_off</span>
+</div>
+<span class="font-label-sm text-[10px] leading-none text-center px-0.5 w-full truncate absolute -right-24 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-surface-container-high py-1 px-2 rounded shadow-sm z-10 whitespace-nowrap pointer-events-none">Offline Mode</span>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 ml-[80px] flex flex-col min-h-screen bg-background relative overflow-y-auto overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-40 w-full bg-surface/80 backdrop-blur-md dark:bg-surface-container-low/80 border-b border-outline-variant/30 shadow-sm flex justify-between items-center h-16 px-8 transition-all">
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tight truncate">Overview</h1>
+<div class="flex items-center gap-2">
+<button class="w-[48px] h-[48px] flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors rounded-full hover:bg-surface-container-high active:scale-98">
+<span class="material-symbols-outlined">sync</span>
+</button>
+<button class="w-[48px] h-[48px] flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors rounded-full hover:bg-surface-container-high active:scale-98">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Canvas -->
+<div class="p-8 md:p-margin_tablet max-w-7xl mx-auto w-full flex flex-col gap-8 pb-32">
+<!-- Quick Actions Bar -->
+<section aria-label="Quick Actions" class="flex flex-wrap gap-4">
+<button class="flex items-center gap-3 bg-primary text-on-primary font-label-lg text-label-lg px-6 h-[48px] rounded-xl hover:bg-primary/90 transition-all active:scale-[0.98] shadow-[0_2px_4px_rgba(0,0,0,0.05)] flex-1 min-w-[200px] justify-center md:justify-start">
+<span class="material-symbols-outlined text-[20px]">play_arrow</span>
+<span>Continue Last Family</span>
+</button>
+<button class="flex items-center gap-3 bg-surface-container-high text-on-surface font-label-lg text-label-lg px-6 h-[48px] rounded-xl hover:bg-surface-container-highest transition-all active:scale-[0.98] border border-outline-variant shadow-[0_2px_4px_rgba(0,0,0,0.05)] flex-1 min-w-[200px] justify-center md:justify-start">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>Start New Visit</span>
+</button>
+<button class="flex items-center gap-3 bg-surface-container-high text-on-surface font-label-lg text-label-lg px-6 h-[48px] rounded-xl hover:bg-surface-container-highest transition-all active:scale-[0.98] border border-outline-variant shadow-[0_2px_4px_rgba(0,0,0,0.05)] flex-1 min-w-[200px] justify-center md:justify-start">
+<span class="material-symbols-outlined text-[20px] text-primary">sync</span>
+<span>Sync Data Now</span>
+</button>
+</section>
+<!-- Metrics Grid -->
+<section aria-label="Key Metrics" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Assigned Families -->
+<div class="bg-surface rounded-[16px] p-[24px] border border-outline-variant/50 shadow-[0px_2px_4px_rgba(0,0,0,0.05)] flex flex-col justify-between min-h-[140px] hover:shadow-[0px_4px_8px_rgba(0,0,0,0.08)] transition-shadow">
+<div class="flex justify-between items-start">
+<h3 class="font-title-md text-title-md text-on-surface-variant">Assigned Families</h3>
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">group</span>
+</div>
+</div>
+<div class="mt-4">
+<span class="font-display-lg text-display-lg text-on-surface font-bold">42</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Total families in your cohort</p>
+</div>
+</div>
+<!-- Completed Visits -->
+<div class="bg-surface rounded-[16px] p-[24px] border border-outline-variant/50 shadow-[0px_2px_4px_rgba(0,0,0,0.05)] flex flex-col justify-between min-h-[140px] hover:shadow-[0px_4px_8px_rgba(0,0,0,0.08)] transition-shadow">
+<div class="flex justify-between items-start">
+<h3 class="font-title-md text-title-md text-on-surface-variant">Completed Visits</h3>
+<div class="w-10 h-10 rounded-full bg-secondary-container/30 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+</div>
+<div class="mt-4">
+<span class="font-display-lg text-display-lg text-on-surface font-bold">18</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Visits completed this phase</p>
+</div>
+</div>
+<!-- Pending Visits -->
+<div class="bg-surface rounded-[16px] p-[24px] border border-outline-variant/50 shadow-[0px_2px_4px_rgba(0,0,0,0.05)] flex flex-col justify-between min-h-[140px] hover:shadow-[0px_4px_8px_rgba(0,0,0,0.08)] transition-shadow">
+<div class="flex justify-between items-start">
+<h3 class="font-title-md text-title-md text-on-surface-variant">Pending Visits</h3>
+<div class="w-10 h-10 rounded-full bg-tertiary-container/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">pending_actions</span>
+</div>
+</div>
+<div class="mt-4">
+<span class="font-display-lg text-display-lg text-on-surface font-bold">24</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Require follow-up scheduling</p>
+</div>
+</div>
+<!-- Pending Sync -->
+<div class="bg-error-container/20 rounded-[16px] p-[24px] border border-error/20 shadow-[0px_2px_4px_rgba(0,0,0,0.05)] flex flex-col justify-between min-h-[140px] relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-error/5 rounded-full blur-xl"></div>
+<div class="flex justify-between items-start relative z-10">
+<h3 class="font-title-md text-title-md text-on-error-container">Pending Sync</h3>
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined">sync_problem</span>
+</div>
+</div>
+<div class="mt-4 relative z-10">
+<span class="font-display-lg text-display-lg text-error font-bold">7</span>
+<p class="font-label-sm text-label-sm text-on-error-container mt-1 font-medium">Records waiting to upload</p>
+</div>
+</div>
+<!-- Last Sync Time -->
+<div class="bg-surface rounded-[16px] p-[24px] border border-outline-variant/50 shadow-[0px_2px_4px_rgba(0,0,0,0.05)] flex flex-col justify-between min-h-[140px]">
+<div class="flex justify-between items-start">
+<h3 class="font-title-md text-title-md text-on-surface-variant">Last Synchronized</h3>
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">update</span>
+</div>
+</div>
+<div class="mt-4">
+<span class="font-headline-lg text-headline-lg text-on-surface font-medium">Today, 08:30 AM</span>
+<div class="flex items-center gap-2 mt-2">
+<div class="w-2 h-2 rounded-full bg-outline"></div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Currently offline</p>
+</div>
+</div>
+</div>
+<!-- Current Phase -->
+<div class="bg-primary-container rounded-[16px] p-[24px] shadow-[0px_2px_4px_rgba(0,0,0,0.05)] flex flex-col justify-between min-h-[140px] text-on-primary-container relative overflow-hidden">
+<!-- Subtle background pattern indication -->
+<div class="absolute right-0 bottom-0 opacity-10 pointer-events-none transform translate-x-1/4 translate-y-1/4">
+<span class="material-symbols-outlined filled text-[120px]">assignment</span>
+</div>
+<div class="flex justify-between items-start relative z-10">
+<h3 class="font-title-md text-title-md opacity-90">Current Phase</h3>
+</div>
+<div class="mt-4 relative z-10">
+<span class="font-display-lg text-display-lg font-bold">Phase I</span>
+<p class="font-label-sm text-label-sm mt-1 opacity-90">Baseline Data Collection</p>
+</div>
+</div>
+</section>
+<!-- Recent Activity Skeleton/Placeholder for high-density layout demo -->
+<section class="mt-4 bg-surface rounded-[16px] border border-outline-variant/50 shadow-[0px_2px_4px_rgba(0,0,0,0.05)] overflow-hidden">
+<div class="p-6 border-b border-outline-variant/30 flex justify-between items-center">
+<h2 class="font-title-lg text-title-lg text-on-surface">Recent Activity</h2>
+<button class="text-primary font-label-lg text-label-lg hover:underline decoration-2 underline-offset-4">View All</button>
+</div>
+<div class="divide-y divide-outline-variant/20">
+<!-- Activity Item -->
+<div class="p-6 flex items-start gap-4 hover:bg-surface-container-lowest/50 transition-colors cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary mt-1 shrink-0">
+<span class="material-symbols-outlined">edit_document</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-md text-body-md text-on-surface truncate"><span class="font-semibold">Clinical Examination</span> updated for <span class="font-semibold">Family #1042</span></p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Edited by you • 2 hours ago</p>
+</div>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<!-- Activity Item -->
+<div class="p-6 flex items-start gap-4 hover:bg-surface-container-lowest/50 transition-colors cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary mt-1 shrink-0">
+<span class="material-symbols-outlined">home</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-md text-body-md text-on-surface truncate"><span class="font-semibold">Housing Data</span> completed for <span class="font-semibold">Family #2109</span></p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Edited by you • Yesterday, 14:30</p>
+</div>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

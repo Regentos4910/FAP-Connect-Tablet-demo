@@ -1,0 +1,353 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>FAP Connect - Offline Sync</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#006f66",
+                        "tertiary-fixed": "#ffdcc0",
+                        "tertiary-fixed-dim": "#ffb875",
+                        "inverse-on-surface": "#eaf1ff",
+                        "primary": "#006194",
+                        "primary-container": "#007bb9",
+                        "on-tertiary-fixed": "#2d1600",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f8f9ff",
+                        "inverse-surface": "#213145",
+                        "on-surface": "#0b1c30",
+                        "surface-container": "#e5eeff",
+                        "outline-variant": "#bfc7d2",
+                        "on-primary-fixed-variant": "#004b73",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary-fixed": "#001d31",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#005049",
+                        "primary-fixed": "#cce5ff",
+                        "tertiary": "#894d00",
+                        "on-tertiary-fixed-variant": "#6b3b00",
+                        "on-surface-variant": "#3f4850",
+                        "tertiary-container": "#ac6200",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#fdfcff",
+                        "secondary-container": "#86f2e4",
+                        "surface-container-high": "#dce9ff",
+                        "secondary": "#006a61",
+                        "surface": "#f8f9ff",
+                        "surface-dim": "#cbdbf5",
+                        "surface-variant": "#d3e4fe",
+                        "on-primary": "#ffffff",
+                        "outline": "#707881",
+                        "inverse-primary": "#93ccff",
+                        "secondary-fixed-dim": "#6bd8cb",
+                        "background": "#f8f9ff",
+                        "on-background": "#0b1c30",
+                        "primary-fixed-dim": "#93ccff",
+                        "on-tertiary-container": "#fffbff",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#89f5e7",
+                        "on-secondary-fixed": "#00201d",
+                        "surface-tint": "#006398"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "nav_rail_width": "80px",
+                        "margin_tablet": "32px",
+                        "touch_target_min": "48px",
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "margin_mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "title-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Pulse Animation */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            80% { transform: scale(1.5); opacity: 0; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        .animate-pulse-ring::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; width: 100%; height: 100%;
+            background-color: inherit;
+            border-radius: 50%;
+            z-index: -1;
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex selection:bg-primary-container selection:text-on-primary-container">
+<!-- Shared Component: SideNavBar -->
+<nav class="fixed left-0 top-0 h-full w-[80px] bg-surface border-r border-outline-variant flex flex-col items-center py-4 gap-4 z-50">
+<!-- Logo / Brand (Truncated for Rail) -->
+<div class="mb-4">
+<span class="material-symbols-outlined text-primary font-bold text-3xl" data-weight="fill">medical_services</span>
+</div>
+<!-- Navigation Tabs -->
+<div class="flex-1 flex flex-col gap-2 w-full px-2">
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Dashboard">
+<span class="material-symbols-outlined mb-1">dashboard</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Assigned Families">
+<span class="material-symbols-outlined mb-1">group</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Summary">
+<span class="material-symbols-outlined mb-1">summarize</span>
+</button>
+<!-- Active Tab: Pending Sync -->
+<button class="bg-secondary-container text-on-secondary-container rounded-xl w-14 h-14 flex flex-col items-center justify-center hover:bg-surface-container-high transition-colors active:scale-95 duration-100" title="Pending Sync">
+<span class="material-symbols-outlined mb-1" data-weight="fill">sync_problem</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Settings">
+<span class="material-symbols-outlined mb-1">settings</span>
+</button>
+</div>
+<!-- Footer / Offline Indicator -->
+<div class="mt-auto flex flex-col items-center w-full px-2">
+<button class="text-tertiary flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl relative" title="Offline Mode">
+<div class="absolute top-2 right-2 w-2 h-2 bg-tertiary rounded-full animate-pulse-ring"></div>
+<span class="material-symbols-outlined mb-1">cloud_off</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-[80px] flex-1 flex flex-col min-h-screen">
+<!-- Shared Component: TopNavBar -->
+<header class="sticky top-0 z-40 w-full bg-surface border-b border-outline-variant shadow-sm flex justify-between items-center h-16 px-8">
+<div class="flex items-center gap-4">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">FAP Connect</h1>
+<span class="px-2 py-1 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm border border-outline-variant">Sync Status</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors" title="Sync Status">
+<span class="material-symbols-outlined">sync</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined" data-weight="fill">account_circle</span>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<div class="flex-1 p-margin_tablet lg:p-[32px] max-w-7xl mx-auto w-full flex flex-col gap-gutter">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-2">
+<div>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-2">Offline Sync</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Manage your localized data. Connect to a stable network to push pending records to the central server and resolve any data conflicts.</p>
+</div>
+<button class="bg-primary text-on-primary font-label-lg text-label-lg rounded-lg h-touch_target_min px-6 flex items-center justify-center gap-2 hover:bg-primary-container hover:text-on-primary-container transition-colors active:scale-[0.98] shadow-sm">
+<span class="material-symbols-outlined">sync</span>
+                    Sync Now
+                </button>
+</div>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Status Lists (Bento Style) -->
+<div class="lg:col-span-8 flex flex-col gap-gutter">
+<!-- Stats Row -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<!-- Pending -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 shadow-sm flex flex-col">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center mb-3">
+<span class="material-symbols-outlined">pending_actions</span>
+</div>
+<span class="font-display-lg text-headline-lg text-on-surface">24</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Pending</span>
+</div>
+<!-- Synced -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 shadow-sm flex flex-col">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center mb-3">
+<span class="material-symbols-outlined">cloud_done</span>
+</div>
+<span class="font-display-lg text-headline-lg text-on-surface">142</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Synced</span>
+</div>
+<!-- Failed -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 shadow-sm flex flex-col border-l-4 border-l-error">
+<div class="w-10 h-10 rounded-full bg-error-container text-on-error-container flex items-center justify-center mb-3">
+<span class="material-symbols-outlined">error</span>
+</div>
+<span class="font-display-lg text-headline-lg text-on-surface">3</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Failed</span>
+</div>
+<!-- Conflicts -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-4 shadow-sm flex flex-col border-l-4 border-l-tertiary">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center mb-3">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<span class="font-display-lg text-headline-lg text-on-surface">1</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Conflicts</span>
+</div>
+</div>
+<!-- Pending Records List -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm overflow-hidden flex flex-col h-full min-h-[400px]">
+<div class="p-6 border-b border-outline-variant bg-surface-container-low flex justify-between items-center">
+<h3 class="font-title-lg text-title-lg text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">pending_actions</span>
+                                Pending Records
+                            </h3>
+<button class="text-primary font-label-sm text-label-sm hover:underline">View All</button>
+</div>
+<div class="flex-1 overflow-y-auto">
+<!-- Table Header -->
+<div class="grid grid-cols-12 gap-4 p-4 border-b border-outline-variant bg-surface-container-lowest font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+<div class="col-span-4">Record ID / Type</div>
+<div class="col-span-4">Family Name</div>
+<div class="col-span-3">Timestamp</div>
+<div class="col-span-1 flex justify-center">Status</div>
+</div>
+<!-- Rows -->
+<div class="grid grid-cols-12 gap-4 p-4 border-b border-outline-variant/50 hover:bg-surface-container-lowest/50 transition-colors items-center min-h-[56px]">
+<div class="col-span-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">medical_services</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface">CLI-8924</div>
+<div class="font-body-sm text-[12px] text-on-surface-variant">Clinical Exam</div>
+</div>
+</div>
+<div class="col-span-4 font-body-md text-body-md">Oluwaseun Family</div>
+<div class="col-span-3 font-body-sm text-[13px] text-on-surface-variant">Today, 10:45 AM</div>
+<div class="col-span-1 flex justify-center">
+<span class="material-symbols-outlined text-tertiary text-[20px]">hourglass_empty</span>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-4 p-4 border-b border-outline-variant/50 hover:bg-surface-container-lowest/50 transition-colors items-center min-h-[56px]">
+<div class="col-span-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface">ECO-8925</div>
+<div class="font-body-sm text-[12px] text-on-surface-variant">Economic Data</div>
+</div>
+</div>
+<div class="col-span-4 font-body-md text-body-md">Adebayo Family</div>
+<div class="col-span-3 font-body-sm text-[13px] text-on-surface-variant">Today, 09:12 AM</div>
+<div class="col-span-1 flex justify-center">
+<span class="material-symbols-outlined text-tertiary text-[20px]">hourglass_empty</span>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-4 p-4 border-b border-outline-variant/50 hover:bg-surface-container-lowest/50 transition-colors items-center min-h-[56px] bg-error-container/20">
+<div class="col-span-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-error-container text-on-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">biotech</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface">LAB-8922</div>
+<div class="font-body-sm text-[12px] text-error">Lab Results (Failed)</div>
+</div>
+</div>
+<div class="col-span-4 font-body-md text-body-md">Ngozi Family</div>
+<div class="col-span-3 font-body-sm text-[13px] text-on-surface-variant">Yesterday, 14:30 PM</div>
+<div class="col-span-1 flex justify-center">
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-error hover:bg-error-container transition-colors" title="Retry">
+<span class="material-symbols-outlined text-[20px]">refresh</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Timeline & Alerts -->
+<div class="lg:col-span-4 flex flex-col gap-gutter">
+<!-- Network Status Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm flex flex-col items-center text-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-surface-container to-surface-container-lowest opacity-50 z-0"></div>
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-16 h-16 rounded-full bg-surface border-2 border-tertiary flex items-center justify-center mb-4 relative">
+<div class="absolute inset-0 rounded-full border-2 border-tertiary opacity-30 animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+<span class="material-symbols-outlined text-tertiary text-3xl">wifi_off</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-1">Currently Offline</h3>
+<p class="font-body-sm text-[13px] text-on-surface-variant mb-4">Last successful sync: Yesterday, 18:45 PM</p>
+<div class="w-full bg-surface-container-high rounded-full h-2 mb-2 overflow-hidden">
+<div class="bg-tertiary h-2 rounded-full w-[85%]"></div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant text-left w-full">Local storage: 85% full (approx 20MB remaining)</p>
+</div>
+</div>
+<!-- Sync Timeline -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm flex-1 p-6 flex flex-col">
+<h3 class="font-title-md text-title-md text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">history</span>
+                            Sync History
+                        </h3>
+<div class="relative pl-6 border-l-2 border-outline-variant space-y-8 flex-1">
+<!-- Timeline Item: Failure -->
+<div class="relative">
+<div class="absolute -left-[31px] w-4 h-4 rounded-full bg-error border-4 border-surface-container-lowest"></div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mb-1">Today, 08:00 AM</div>
+<div class="font-title-md text-[15px] text-on-surface">Auto-sync Failed</div>
+<div class="font-body-sm text-[13px] text-error mt-1">Connection timed out. 3 records pending.</div>
+</div>
+<!-- Timeline Item: Success -->
+<div class="relative">
+<div class="absolute -left-[31px] w-4 h-4 rounded-full bg-secondary border-4 border-surface-container-lowest"></div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mb-1">Yesterday, 18:45 PM</div>
+<div class="font-title-md text-[15px] text-on-surface">Manual Sync Complete</div>
+<div class="font-body-sm text-[13px] text-on-surface-variant mt-1">142 records successfully uploaded.</div>
+</div>
+<!-- Timeline Item: Success -->
+<div class="relative">
+<div class="absolute -left-[31px] w-4 h-4 rounded-full bg-secondary border-4 border-surface-container-lowest"></div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mb-1">Yesterday, 12:30 PM</div>
+<div class="font-title-md text-[15px] text-on-surface">Auto-sync Complete</div>
+<div class="font-body-sm text-[13px] text-on-surface-variant mt-1">45 records successfully uploaded.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

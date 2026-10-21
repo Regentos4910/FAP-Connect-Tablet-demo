@@ -1,0 +1,404 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>FAP Connect - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error-container": "#93000a",
+                      "on-secondary-container": "#006f66",
+                      "tertiary-fixed": "#ffdcc0",
+                      "tertiary-fixed-dim": "#ffb875",
+                      "inverse-on-surface": "#eaf1ff",
+                      "primary": "#006194",
+                      "primary-container": "#007bb9",
+                      "on-tertiary-fixed": "#2d1600",
+                      "error": "#ba1a1a",
+                      "on-error": "#ffffff",
+                      "surface-bright": "#f8f9ff",
+                      "inverse-surface": "#213145",
+                      "on-surface": "#0b1c30",
+                      "surface-container": "#e5eeff",
+                      "outline-variant": "#bfc7d2",
+                      "on-primary-fixed-variant": "#004b73",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-low": "#eff4ff",
+                      "on-primary-fixed": "#001d31",
+                      "surface-container-highest": "#d3e4fe",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-fixed-variant": "#005049",
+                      "primary-fixed": "#cce5ff",
+                      "tertiary": "#894d00",
+                      "on-tertiary-fixed-variant": "#6b3b00",
+                      "on-surface-variant": "#3f4850",
+                      "tertiary-container": "#ac6200",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-container": "#fdfcff",
+                      "secondary-container": "#86f2e4",
+                      "surface-container-high": "#dce9ff",
+                      "secondary": "#006a61",
+                      "surface": "#f8f9ff",
+                      "surface-dim": "#cbdbf5",
+                      "surface-variant": "#d3e4fe",
+                      "on-primary": "#ffffff",
+                      "outline": "#707881",
+                      "inverse-primary": "#93ccff",
+                      "secondary-fixed-dim": "#6bd8cb",
+                      "background": "#f8f9ff",
+                      "on-background": "#0b1c30",
+                      "primary-fixed-dim": "#93ccff",
+                      "on-tertiary-container": "#fffbff",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed": "#89f5e7",
+                      "on-secondary-fixed": "#00201d",
+                      "surface-tint": "#006398"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "nav_rail_width": "80px",
+                      "margin_tablet": "32px",
+                      "touch_target_min": "48px",
+                      "unit": "8px",
+                      "gutter": "24px",
+                      "margin_mobile": "16px"
+              },
+              "fontFamily": {
+                      "title-lg": [
+                              "Inter"
+                      ],
+                      "title-md": [
+                              "Inter"
+                      ],
+                      "label-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "title-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "title-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-lg": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.1px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.5px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar (From JSON) -->
+<nav class="fixed left-0 top-0 h-full w-[80px] bg-surface border-r border-outline-variant flex flex-col items-center py-4 gap-4 z-50">
+<!-- Brand / Header (Hidden text on rail, but keeping semantics) -->
+<div class="flex flex-col items-center gap-2 mb-4 w-full px-2" title="FAP Connect">
+<span class="material-symbols-outlined text-primary text-3xl font-bold" data-weight="fill" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
+</div>
+<div class="flex-1 overflow-y-auto w-full no-scrollbar flex flex-col items-center gap-2 px-2">
+<!-- Nav Items -->
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Dashboard">
+<span class="material-symbols-outlined">dashboard</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Assigned Families">
+<span class="material-symbols-outlined">group</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Family Details">
+<span class="material-symbols-outlined">description</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Family Members">
+<span class="material-symbols-outlined">person</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Housing">
+<span class="material-symbols-outlined">home</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Economic Data">
+<span class="material-symbols-outlined">payments</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Social History">
+<span class="material-symbols-outlined">history</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Clinical Examination">
+<span class="material-symbols-outlined">medical_services</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Laboratory Investigation">
+<span class="material-symbols-outlined">biotech</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Vital Events">
+<span class="material-symbols-outlined">event</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="TB Screening">
+<span class="material-symbols-outlined">emergency</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Summary">
+<span class="material-symbols-outlined">summarize</span>
+</button>
+<button class="text-on-surface-variant flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Pending Sync">
+<div class="relative">
+<span class="material-symbols-outlined">sync_problem</span>
+<span class="absolute -top-1 -right-1 w-3 h-3 bg-secondary rounded-full border-2 border-surface animate-pulse"></span>
+</div>
+</button>
+<!-- Active Tab: Settings -->
+<button class="bg-secondary-container text-on-secondary-container rounded-xl w-14 h-14 flex flex-col items-center justify-center hover:bg-surface-container-high transition-colors active:scale-95 duration-100" title="Settings">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">settings</span>
+</button>
+</div>
+<!-- Footer -->
+<div class="mt-auto pt-4 border-t border-outline-variant w-full flex flex-col items-center gap-2">
+<button class="text-tertiary flex flex-col items-center justify-center w-14 h-14 hover:bg-surface-container-high transition-colors active:scale-95 duration-100 rounded-xl" title="Offline Mode">
+<span class="material-symbols-outlined">cloud_off</span>
+</button>
+<img alt="Medical Student Profile" class="w-10 h-10 rounded-full border-2 border-surface shadow-sm object-cover" data-alt="A professional studio portrait of a female medical student wearing a crisp white coat over light blue scrubs. She has a warm, confident smile and is set against a clean, softly lit white background. The lighting is high-key and flattering, emphasizing a clinical, modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUUyjGX3mCZKmZL_pmgqeQoPFzjY-HV14UOHC0CrGL_uIiHZ1c2W_etCUOt_0FWCRPhmqRwNQGyi7eEV4HVA9eOwBlcJ8eEpSAdO-gR-QxOKEYbCWskjmJucXCtPPfzd2Cy3ySR0jNdhyObo8JjNIkrylPsv5RFF3Xk5otfXDMZwGOE2xNdg4CXL2bgXmToRL_JgMsjkDfhwC4f5liOEqxtrfuibH8B6jl3_0aohkxZhC2TSTDXdna">
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 ml-[80px] flex flex-col min-h-screen bg-background">
+<!-- TopNavBar (From JSON) -->
+<header class="sticky top-0 z-40 w-full bg-surface border-b border-outline-variant shadow-sm flex justify-between items-center h-16 px-8">
+<div class="flex items-center gap-4">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">FAP Connect</h1>
+<span class="font-label-lg text-label-lg text-on-surface-variant hidden md:inline-block pl-4 border-l border-outline-variant">Settings &amp; Profile</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors active:scale-98 w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-highest">
+<span class="material-symbols-outlined">sync</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors active:scale-98 w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-highest">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 p-margin_tablet max-w-7xl mx-auto w-full">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column (Profile & Actions) -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- Profile Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-gutter shadow-sm flex flex-col items-center text-center">
+<div class="relative mb-6">
+<img alt="Sarah Jenkins" class="w-32 h-32 rounded-full border-4 border-surface-container shadow-md object-cover" data-alt="A professional studio portrait of a female medical student wearing a crisp white coat over light blue scrubs. She has a warm, confident smile and is set against a clean, softly lit white background. The lighting is high-key and flattering, emphasizing a clinical, modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtaxxQhSlwkUzvvFW9ImUCByl9Yqfbze2Sq6tLiLw_upvgbAtmOVlM-ypiWYTzuG3Kl5ncMIqDUDqsy8K1P7GIuk0xGLMcqOiw890GUWgEPq3Ty1z6vsGoidoWueMs-l1rjMga-NUPbWusqi-PdKEHJ4k2DtvWNvDSYVdme0LJRss54CwSQN-KxpBELbZWgd7LfzFLEqKtUBnsUpf0wmSgQ_AnF6r2bndcFIkvKwE_NNY3IQuSUTCa">
+<button class="absolute bottom-0 right-0 bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center shadow-md hover:bg-primary-container transition-colors border-2 border-surface-container-lowest" title="Edit Photo">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+</div>
+<h2 class="font-title-lg text-title-lg text-on-surface mb-1">Sarah Jenkins</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">ID: MED-2023-8492</p>
+<div class="w-full bg-surface-container-low rounded-lg p-4 flex flex-col gap-2 text-left border border-outline-variant/50">
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Current Phase</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">Community Med II</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Cohort</span>
+<span class="font-label-lg text-label-lg text-on-surface">Fall 2023</span>
+</div>
+</div>
+</div>
+<!-- Faculty Contact -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-gutter shadow-sm">
+<h3 class="font-title-md text-title-md text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">supervisor_account</span>
+                            Assigned Faculty
+                        </h3>
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-lg">
+                                DR
+                            </div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface font-bold">Dr. Robert Chen</p>
+<p class="font-body-sm text-sm text-on-surface-variant">Dept. of Public Health</p>
+</div>
+</div>
+<button class="w-full min-h-touch_target_min border border-outline-variant rounded-lg text-primary font-label-lg text-label-lg hover:bg-surface-container-low transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">mail</span>
+                            Contact Supervisor
+                        </button>
+</div>
+</div>
+<!-- Right Column (Settings & Data) -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<!-- Storage & Sync Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-gutter shadow-sm">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-6 border-b border-outline-variant pb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">cloud_sync</span>
+                            Data &amp; Storage
+                        </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Device Storage -->
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-end">
+<span class="font-label-lg text-label-lg text-on-surface font-bold">Device Storage</span>
+<span class="font-body-md text-body-md text-on-surface-variant">45.2 GB free</span>
+</div>
+<div class="w-full h-3 bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="h-full bg-primary" style="width: 25%" title="App Data: 1.2GB"></div>
+<div class="h-full bg-secondary" style="width: 15%" title="Offline DB: 800MB"></div>
+<div class="h-full bg-outline-variant" style="width: 45%" title="Other Apps: 2.1GB"></div>
+</div>
+<div class="flex gap-4 mt-2">
+<div class="flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">App Data (1.2GB)</span>
+</div>
+<div class="flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Offline DB (800MB)</span>
+</div>
+</div>
+</div>
+<!-- Offline DB Controls -->
+<div class="flex flex-col gap-4 border-t md:border-t-0 md:border-l border-outline-variant pt-4 md:pt-0 md:pl-8">
+<div>
+<p class="font-label-lg text-label-lg text-on-surface font-bold">Offline Database</p>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Last synced: 2 hours ago</p>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 min-h-touch_target_min bg-primary text-on-primary rounded-lg font-label-lg text-label-lg hover:bg-primary-container hover:text-on-primary-container transition-colors active:scale-98 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">sync</span>
+                                        Force Sync
+                                    </button>
+<button class="flex-1 min-h-touch_target_min border border-error text-error rounded-lg font-label-lg text-label-lg hover:bg-error-container hover:text-on-error-container transition-colors active:scale-98 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">delete</span>
+                                        Clear Cache
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Preferences Card (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-6 shadow-sm hover:border-primary transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-3xl text-primary group-hover:scale-110 transition-transform">language</span>
+<div class="w-10 h-6 bg-primary rounded-full relative p-1 transition-colors cursor-pointer">
+<div class="w-4 h-4 bg-on-primary rounded-full absolute right-1"></div>
+</div>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface">Language</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">English (Medical US)</p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-6 shadow-sm hover:border-primary transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-3xl text-secondary group-hover:scale-110 transition-transform">dark_mode</span>
+<div class="w-10 h-6 bg-surface-container-highest rounded-full relative p-1 transition-colors cursor-pointer">
+<div class="w-4 h-4 bg-outline rounded-full absolute left-1"></div>
+</div>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface">Appearance</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Light Mode</p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-6 shadow-sm hover:border-primary transition-colors cursor-pointer group md:col-span-2 flex justify-between items-center">
+<div>
+<h4 class="font-title-md text-title-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">security</span>
+                                    Security &amp; Privacy
+                                </h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Manage PIN, biometric login, and HIPAA consent forms.</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+<!-- Logout Action -->
+<div class="mt-auto pt-8">
+<button class="w-full min-h-[56px] border border-error text-error bg-surface rounded-xl font-title-md text-title-md hover:bg-error-container hover:text-on-error-container transition-colors active:scale-[0.98] flex items-center justify-center gap-2 shadow-sm">
+<span class="material-symbols-outlined">logout</span>
+                            Secure Logout
+                        </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
